@@ -4,6 +4,7 @@ class SpatialiteGis < Formula
   homepage "https://www.gaia-gis.it/fossil/spatialite_gis/index"
   url "http://www.gaia-gis.it/gaia-sins/spatialite_gis-1.0.0c.tar.gz"
   sha1 "45508b27fbdc7166ef874ce3f79216d6c01f3c4f"
+  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "freexl"
@@ -48,7 +49,7 @@ index f90575e..2c6f7a3 100644
 @@ -39,6 +39,12 @@
  #include <proj_api.h>
  #include <geos_c.h>
- 
+
 +#ifdef __WXMAC__
 +// Allow the program to run and recieve focus without creating an app bundle.
 +#include <Carbon/Carbon.h>
@@ -79,4 +80,3 @@ index f90575e..2c6f7a3 100644
 +
    return true;
  }
- 

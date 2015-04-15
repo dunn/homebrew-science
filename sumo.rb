@@ -2,6 +2,7 @@ class Sumo < Formula
   homepage "https://sourceforge.net/projects/sumo/"
   url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.22.0/sumo-all-0.22.0.tar.gz"
   sha1 "32206adaccb35e41afb697bb3c841a5578e8f167"
+  revision 1
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"

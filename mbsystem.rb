@@ -4,6 +4,7 @@ class Mbsystem < Formula
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
   url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/mbsystem-5.4.2209.tar.gz"
   sha1 "e36e28ceefe7514df8bf2b5ead57c7e028e8f9dd"
+  revision 1
 
   depends_on :x11
   depends_on "gmt4"

@@ -19,6 +19,7 @@ class Qgis < Formula
   homepage 'http://www.qgis.org'
   url 'http://qgis.org/downloads/qgis-1.8.0.tar.bz2'
   sha1 '99c0d716acbe0dd70ad0774242d01e9251c5a130'
+  revision 1
 
   head 'https://github.com/qgis/Quantum-GIS.git', :branch => 'master'
 
