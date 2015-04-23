@@ -1,9 +1,8 @@
-require 'formula'
-
 class Fasttree < Formula
-  homepage 'http://meta.microbesonline.org/fasttree/'
-  url 'http://www.microbesonline.org/fasttree/FastTree-2.1.7.c'
-  sha1 'd9381924829e7d19d56154ebbde0e44044b4b7ab'
+  homepage "http://meta.microbesonline.org/fasttree/"
+  url "https://mirrors.kernel.org/debian/pool/main/f/fasttree/fasttree_2.1.8.orig.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/fasttree/fasttree_2.1.8.orig.tar.gz"
+  sha256 "bec10584efa788593065f065b0006d9fe54d37ad43d21ddc4e29233fb921e7c2"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -13,7 +12,7 @@ class Fasttree < Formula
     sha1 "acad8b55ad7eb9f6a63cf6b96ef3961e1d01ed79" => :mountain_lion
   end
 
-  needs :openmp # => :recommended
+  needs :openmp
 
   fails_with :clang do
     build 425
@@ -22,12 +21,12 @@ class Fasttree < Formula
   end
 
   def install
-    system "#{ENV.cc} -DOPENMP -fopenmp -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree-#{version}.c -lm"
+    system ENV.cc, "-DOPENMP", "-fopenmp", "-O3", "-finline-functions", "-funroll-loops", "-Wall", "-o", "FastTree", "fasttree.c", "-lm"
     bin.install "FastTree"
   end
 
   test do
-    Pathname.new('test.fa').write <<-EOF.undent
+    Pathname.new("test.fa").write <<-EOF.undent
       >1
       LCLYTHIGRNIYYGSYLYSETWNTTTMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV
       >2
