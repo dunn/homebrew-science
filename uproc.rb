@@ -1,8 +1,16 @@
-require "formula"
-
 class Uproc < Formula
   homepage "http://uproc.gobics.de/"
-  head "https://github.com/gobics/uproc.git"
+  # tag "bioinformatics"
+  url "http://uproc.gobics.de/downloads/uproc/uproc-1.2.0.tar.gz"
+  sha256 "378afd1d2bb1564582e3893eabb95223bf80fb6950e571690064167fe0e779bc"
+
+  head do
+    url "https://github.com/gobics/uproc.git"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
+
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
@@ -11,14 +19,10 @@ class Uproc < Formula
     sha1 "6216fa194d8413b905d58b94993abb2eac531b48" => :mountain_lion
   end
 
-  #tag "bioinformatics"
-
-  url "http://uproc.gobics.de/downloads/uproc/uproc-1.1.2.tar.gz"
-  sha1 "32acdf691001e93d3a00e5351fb876c6b71779a7"
-
   needs :openmp # => :recommended
 
   def install
+    system "autoreconf", "-i" if build.head?
     system "./configure",
       "--disable-debug",
       "--disable-dependency-tracking",
